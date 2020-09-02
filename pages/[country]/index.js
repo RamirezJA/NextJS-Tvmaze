@@ -11,9 +11,11 @@ const Home = ({ shows }) => {
   return <ul className="tvshows">{renderShows()}</ul>;
 };
 
-Home.getInitialProps = async () => {
+Home.getInitialProps = async (context) => {
+  const country = context.query.country || 'us';
+
   const response = await axios.get(
-    'http://api.tvmaze.com/schedule?country=US&date=2014-12-01'
+    `http://api.tvmaze.com/schedule?country=${country}&date=2014-12-01`
   );
 
   return {
