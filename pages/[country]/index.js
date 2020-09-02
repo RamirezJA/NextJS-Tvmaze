@@ -1,14 +1,24 @@
-import { useEffect } from 'react';
 import axios from 'axios';
 
-const CountryTest = () => {
-  useEffect(() => {
-    axios
-      .get('http://api.tvmaze.com/schedule?country=US&date=2014-12-01')
-      .then((response) => console.log(response.data));
-  }, []);
+const Home = ({ shows }) => {
+  const renderShows = () => {
+    return shows.map((showItem, index) => {
+      const { show } = showItem;
+      return <li key={index}>{show.name} </li>;
+    });
+  };
 
-  return <h1>This Country test!</h1>;
+  return <ul className="tvshows">{renderShows()}</ul>;
 };
 
-export default CountryTest;
+Home.getInitialProps = async () => {
+  const response = await axios.get(
+    'http://api.tvmaze.com/schedule?country=US&date=2014-12-01'
+  );
+
+  return {
+    shows: response.data,
+  };
+};
+
+export default Home;
