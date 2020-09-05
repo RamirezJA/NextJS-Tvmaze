@@ -7,7 +7,10 @@ const Home = ({ shows }) => {
       const { show } = showItem;
       return (
         <li key={index}>
-          <Thumbnail imageUrl={show.image.medium} caption={show.name} />
+          <Thumbnail
+            imageUrl={(show.image && show.image.medium) || undefined}
+            caption={show.name}
+          />
         </li>
       );
     });
