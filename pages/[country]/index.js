@@ -16,7 +16,7 @@ const Home = ({ shows }) => {
     });
   };
 
-  return <ul className="tvshows">{renderShows()}</ul>;
+  return <ul className="tvshows-grid">{renderShows()}</ul>;
 };
 
 Home.getInitialProps = async (context) => {
