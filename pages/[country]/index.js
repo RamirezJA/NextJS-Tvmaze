@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Thumbnail from '../../components/Thumbnail';
 
-const Home = ({ shows }) => {
+const Home = ({ shows, country }) => {
   const renderShows = () => {
     return shows.map((showItem, index) => {
       const { show } = showItem;
@@ -10,6 +10,8 @@ const Home = ({ shows }) => {
           <Thumbnail
             imageUrl={(show.image && show.image.medium) || undefined}
             caption={show.name}
+            href="/[country]/[showId]"
+            as={`/${country}/${show.id}`}
           />
         </li>
       );
@@ -28,6 +30,7 @@ Home.getInitialProps = async (context) => {
 
   return {
     shows: response.data,
+    country,
   };
 };
 
