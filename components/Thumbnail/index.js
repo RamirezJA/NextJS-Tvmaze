@@ -7,7 +7,7 @@ const Thumbnail = ({
 }) => {
   return (
     <div className="thumbnail">
-      <Link href="/us/5617">
+      <Link href="/[country]/[showId]" as="/us/5617">
         <a>
           <img src={imageUrl} alt="thumbnail_image" />
           <h4 className="thumbnail_caption">{caption}</h4>
