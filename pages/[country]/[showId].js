@@ -1,7 +1,8 @@
 import axios from 'axios';
+import parse from 'html-react-parser';
 
 const ShowDetails = ({ show }) => {
-  const { name, image } = show;
+  const { name, image, summary } = show;
 
   return (
     <div className="show-details">
@@ -10,6 +11,7 @@ const ShowDetails = ({ show }) => {
         style={{ backgroundImage: `url(${image.original})` }}
       ></div>
       <h1>{name}</h1>
+      {parse(summary)}
       <style jsx>{`
         .show-details__poster {
           height: 200px;
