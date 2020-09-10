@@ -1,5 +1,5 @@
 import Thumbnail from '../Thumbnail';
-
+//Small is true
 const Cast = ({ cast }) => {
   const renderCast = () => {
     return cast.map((castItem, index) => {
