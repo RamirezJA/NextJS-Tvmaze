@@ -10,6 +10,7 @@ const Cast = ({ cast }) => {
           <Thumbnail
             imageUrl={(image && image.medium) || undefined}
             caption={name}
+            small
           ></Thumbnail>
         </li>
       );
@@ -24,6 +25,7 @@ const Cast = ({ cast }) => {
         {`
           .cast__list {
             display: flex;
+            overflow-x: scroll;
             padding: 0;
             margin: 0;
             list-style-type: none;

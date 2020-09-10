@@ -1,4 +1,3 @@
-import ThumbnailStyles from './styles';
 import Link from 'next/link';
 
 const Thumbnail = ({
@@ -6,6 +5,7 @@ const Thumbnail = ({
   caption,
   href = '',
   as = '',
+  small = false,
 }) => {
   return (
     <div className="thumbnail">
@@ -16,7 +16,17 @@ const Thumbnail = ({
         </a>
       </Link>
 
-      <style jsx>{ThumbnailStyles}</style>
+      <style jsx>{`
+        .thumbnail_image {
+          width: ${small ? '100px' : '100%'};
+          margin-right: 10px;
+        }
+
+        .thumbnail_caption {
+          text-align: center;
+          padding: 10px;
+        }
+      `}</style>
     </div>
   );
 };
