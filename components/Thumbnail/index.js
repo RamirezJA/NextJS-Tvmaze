@@ -19,7 +19,6 @@ const Thumbnail = ({
       <style jsx>{`
         .thumbnail_image {
           width: ${small ? '100px' : '100%'};
-          margin-right: 10px;
         }
 
         .thumbnail_caption {

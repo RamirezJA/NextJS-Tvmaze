@@ -30,6 +30,10 @@ const Cast = ({ cast }) => {
             margin: 0;
             list-style-type: none;
           }
+
+          .cast__list > :global(li) {
+            margin-right: 10px;
+          }
         `}
       </style>
     </div>
