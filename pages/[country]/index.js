@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Thumbnail from '../../components/Thumbnail';
+import Header from '../../components/Header';
 
 const Home = ({ shows, country }) => {
   const renderShows = () => {
@@ -18,7 +19,24 @@ const Home = ({ shows, country }) => {
     });
   };
 
-  return <ul className="tvshows-grid">{renderShows()}</ul>;
+  return <div className='Home'>
+    <Header/>
+    <ul className="tvshows-grid">{renderShows()}
+    <style jsx>{`
+      .tvshows-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 0;
+        margin: 0;
+        list-style-type:none;
+      }
+    `}
+
+    </style>
+    
+    </ul>
+    </div> 
 };
 
 Home.getInitialProps = async (context) => {
