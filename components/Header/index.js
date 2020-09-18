@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { route } from 'next/dist/next-server/server/router';
 
 const countries = [{
     label: 'us',
@@ -16,6 +17,9 @@ const Header = () => {
 
     const handleChange = (e) => {
         setSelectedCountry(e.target.value);
+
+        // /country
+        router.push(`/[country]`,`/${e.target.value}`);
     }
 
     const renderCountries = () => {
