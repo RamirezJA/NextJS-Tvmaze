@@ -1,7 +1,6 @@
 import Router from 'next/router'
 
-const Home = () => 
-null
+const Home = () => null
 
 
 Home.getInitialProps = (context) => {
