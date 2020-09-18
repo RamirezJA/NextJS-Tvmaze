@@ -1,14 +1,19 @@
-import React from 'react';
+import Router from 'next/router'
 
 const Home = () => 
-<h1>This is my Home Page {process.browser}</h1>
+null
 
 
-Home.getInitialProps = () => {
-  console.log('browser: ', process.browser);
-  return {
-    test: 'testing'
-  }
+Home.getInitialProps = (context) => {
+
+  const country = context.query.country || 'us';
+
+  process.browser ? 
+    Router.replace('/[country]', `${country}`) :
+    context.res.writeHead(302, { Location: `/${country}`});
+
+    context.res.end()
+
 }
 
 export default Home;
