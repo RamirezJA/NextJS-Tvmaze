@@ -7,7 +7,7 @@ const ShowDetails = ({ show = {}, statusCode }) => {
   const { name, image, summary, _embedded } = show;
 
   if(statusCode){
-    return <Error statusCode={statusCode} title='Ooops there was a problem.../>
+    return <Error statusCode={statusCode} title='Ooops there was a problem...'/>
   }
 
   return (
