@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+
 const countries = [{
     label: 'us',
     name: 'United States'
@@ -8,9 +11,11 @@ const countries = [{
 
 
 const Header = () => {
+    const router = useRouter();
+    const [selectedCountry, setSelectedCountry] = useState(router.query.country);
 
     const handleChange = (e) => {
-        console.log('selected country: ', e.target.value)
+        setSelectedCountry(e.target.value);
     }
 
     const renderCountries = () => {
@@ -24,7 +29,9 @@ const Header = () => {
 
     return (
     <div className='header'>
-        <select onChange={handleChange}>
+        <select 
+            value={selectedCountry}
+            onChange={handleChange}>
             { renderCountries()}
         </select>
         <style jsx>{`
