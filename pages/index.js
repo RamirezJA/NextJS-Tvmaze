@@ -1,5 +1,14 @@
 import React from 'react';
 
-export default function Home() {
-  return <div>HomePage!</div>;
+const Home = () => 
+<h1>This is my Home Page {process.browser}</h1>
+
+
+Home.getInitialProps = () => {
+  console.log('browser: ', process.browser);
+  return {
+    test: 'testing'
+  }
 }
+
+export default Home;
